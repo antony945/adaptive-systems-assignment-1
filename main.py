@@ -25,9 +25,7 @@ def is_article_about_topics(df: pd.Series, target_topics: list[str]):
 
 # Creating the model (from the program begin to the call similarities.MatrixSimilarity(tfidf_vectors))
 def create_model(df: pd.DataFrame, main_column, porter, stoplist, isLDA: bool):
-    # Vectorize document
-    # Extract documents from df
-    
+    # Extract documents from df    
     documents = df[main_column].dropna().to_list()
     print(f"Vectorizing {len(documents)} documents...")
 
@@ -140,12 +138,13 @@ def run(main_column: str, target_topics_1, target_topics_2, isLDA: bool, silent=
     init_t: datetime = datetime.datetime.now()
 
     # Read the Excel file
-    file_path = 'news1.csv'  # Replace with your file path
-    df = pd.read_csv(file_path, delimiter=",", nrows=nrows)  # Specify the sheet name if necessary       
+    file_path = 'news1.csv'
+    df = pd.read_csv(file_path, delimiter=",", nrows=nrows)       
     
     # Pay attention that some rows may don't have description, so we'll not include those articles there
-    # print(df.info())
     df = df.dropna(subset=[main_column]).reset_index(drop=True)
+    
+    print(df.info())
     # print(df.info())
     
     porter = PorterStemmer()
