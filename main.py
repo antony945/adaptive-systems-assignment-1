@@ -24,8 +24,8 @@ def is_article_about_topics(df: pd.Series, target_topics: list[str]):
     return pd.notna(df['article_section']) and any(topic.lower() in df['article_section'].lower() for topic in target_topics)
 
 # Creating the model (from the program begin to the call similarities.MatrixSimilarity(tfidf_vectors))
-def create_model(df: pd.DataFrame, main_column, porter, stoplist, isLDA: bool):
-    # Extract documents from df    
+def create_model(df: pd.DataFrame, main_column, porter, stoplist, isLDA: bool):    
+    # Extract documents from df
     documents = df[main_column].dropna().to_list()
     print(f"Vectorizing {len(documents)} documents...")
 
@@ -37,6 +37,7 @@ def create_model(df: pd.DataFrame, main_column, porter, stoplist, isLDA: bool):
 
     # print("Tokens of each document:")
     # pprint(texts)
+    # input(".....")
 
     # create mapping keyword-id
     dictionary = corpora.Dictionary(texts)
@@ -212,7 +213,7 @@ def print_result(result):
     print("====================================================================")
 
 if __name__ == '__main__':
-    main_column = "description" # others are "description", "tags", "article_section"
+    main_column = "tags" # others are "description", "tags", "article_section"
     target_topics_a = ["food & drink", "food and drink"]
     target_topics_b = ["sports"]
     silent = True

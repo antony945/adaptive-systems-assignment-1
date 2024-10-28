@@ -34,3 +34,15 @@ To do this assignment, you must use the python libraries Gensim and NLTK, which 
 You will have to submit a zip/rar file containing a document explaining the results obtained in the proposed tasks, the discussion of these results, and the source code. 
 
 Only one member of each team must submit the assignment in Moodle.
+
+
+ARTICLE1, FOOD
+
+DESC_WEIGHT = 0.6
+TAG_WEIGHT = 0.4
+
+# Combined Similarity Calculation
+S_combined = (weight_description * S_description) + (weight_tags * S_tags)
+
+1  0.8 SPORT =>  S(SPORT|FOOD) = 0.2 => 0.8*0.7 + 0.3*0.2 = 0.56 + 0.06 = 0.62
+2  0.5 FOOD => S(FOOD|FOOD) = 1 => 0.35+0.3 = 0.888!!!!
