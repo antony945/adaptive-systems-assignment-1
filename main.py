@@ -139,7 +139,7 @@ def new_calculate_ratio_quality(df: pd.DataFrame, target_topics, vectors_a, vect
     print("======================================================\n")
 
     start_index = 0
-    alpha = 0.8
+    alpha = 0.7
 
     # For every article (a) on topic "Food and Drink":
     for index, row in filtered_df.iterrows():
