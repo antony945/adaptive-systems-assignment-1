@@ -266,7 +266,7 @@ if __name__ == '__main__':
     target_topics_a = ["food & drink", "food and drink"]
     target_topics_b = ["sports"]
     silent = True
-    newMethod = True
+    newMethod = False
     nrows = None
 
     result = run_experiment(main_column, second_column, target_topics_a, target_topics_b, newMethod, silent, nrows)
